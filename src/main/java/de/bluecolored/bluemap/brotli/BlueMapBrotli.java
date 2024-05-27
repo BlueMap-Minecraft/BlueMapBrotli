@@ -15,7 +15,7 @@ public class BlueMapBrotli implements Runnable {
     public void run() {
         Brotli4jLoader.ensureAvailability();
         Compression.REGISTRY.register(new BufferedCompression(
-                Key.parse("bluemap-brotli:brotli"),
+                new Key("bluemap-brotli", "brotli"),
                 "br",
                 ".br",
                 out -> new BrotliOutputStream(out, new Encoder.Parameters().setQuality(5)),

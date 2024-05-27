@@ -21,7 +21,6 @@ public class BlueMapBrotli implements Runnable {
                 out -> new BrotliOutputStream(out, new Encoder.Parameters().setQuality(5)),
                 BrotliInputStream::new
         ));
-
     }
 
 }

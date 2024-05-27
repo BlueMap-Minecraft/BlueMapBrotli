@@ -1,0 +1,4 @@
+{
+  "id": "bluemap-brotli",
+  "entrypoint": "de.bluecolored.bluemap.brotli.BlueMapBrotli"
+}

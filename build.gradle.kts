@@ -13,12 +13,11 @@ java {
 
 repositories {
     mavenCentral()
-    maven ( "https://repo.bluecolored.de/snapshots" )
     maven ( "https://repo.bluecolored.de/releases" )
 }
 
 dependencies {
-    compileOnly ( "de.bluecolored.bluemap:BlueMapCore:4.1-45" )
+    compileOnly ( "de.bluecolored.bluemap:BlueMapCore:5.0" )
 
     implementation ( group = "com.aayushatharva.brotli4j", name = "brotli4j", version = "1.16.0" )
     runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-windows-x86_64", version = "1.16.0" )

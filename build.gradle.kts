@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "de.bluecolored.bluemap.brotli"
-version = "0.1"
+version = "1.0"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(16))
@@ -28,6 +28,11 @@ dependencies {
 
 tasks.shadowJar {
     relocate( "com.aayushatharva.brotli4j", "de.bluecolored.shadow.brotli4j" )
+
+    doLast {
+        destinationDirectory.file(archiveFileName).get().asFile
+            .copyTo(projectDir.resolve("build/release/bluemap-brotli-$version.jar"))
+    }
 }
 
 tasks.withType(JavaCompile::class).configureEach {

@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "de.bluecolored.bluemap.brotli"
-version = "1.0"
+version = "1.1"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(16))
@@ -17,23 +17,25 @@ repositories {
 }
 
 dependencies {
-    compileOnly ( "de.bluecolored.bluemap:BlueMapCore:5.0" )
+    compileOnly ( "de.bluecolored.bluemap:BlueMapCore:5.2" )
 
-    implementation ( group = "com.aayushatharva.brotli4j", name = "brotli4j", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-windows-x86_64", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-windows-aarch64", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-x86_64", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-aarch64", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-armv7", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-ppc64le", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-riscv64", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-s390x", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-osx-x86_64", version = "1.16.0" )
-    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-osx-aarch64", version = "1.16.0" )
+    val brotli4jVersion = "1.16.0"
+    implementation ( group = "com.aayushatharva.brotli4j", name = "brotli4j", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-windows-x86_64", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-windows-aarch64", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-x86_64", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-aarch64", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-armv7", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-ppc64le", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-riscv64", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-s390x", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-osx-x86_64", version = brotli4jVersion )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-osx-aarch64", version = brotli4jVersion )
 }
 
 tasks.shadowJar {
-    relocate( "com.aayushatharva.brotli4j", "de.bluecolored.shadow.brotli4j" )
+    // apparently relocating breaks it from working on some systems, so we don't relocate until someone finds out why
+    //relocate( "com.aayushatharva.brotli4j", "de.bluecolored.shadow.brotli4j" )
 
     doLast {
         destinationDirectory.file(archiveFileName).get().asFile

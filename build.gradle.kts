@@ -21,9 +21,15 @@ dependencies {
 
     implementation ( group = "com.aayushatharva.brotli4j", name = "brotli4j", version = "1.16.0" )
     runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-windows-x86_64", version = "1.16.0" )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-windows-aarch64", version = "1.16.0" )
     runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-x86_64", version = "1.16.0" )
     runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-aarch64", version = "1.16.0" )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-armv7", version = "1.16.0" )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-ppc64le", version = "1.16.0" )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-riscv64", version = "1.16.0" )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-linux-s390x", version = "1.16.0" )
     runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-osx-x86_64", version = "1.16.0" )
+    runtimeOnly ( group = "com.aayushatharva.brotli4j", name = "native-osx-aarch64", version = "1.16.0" )
 }
 
 tasks.shadowJar {
